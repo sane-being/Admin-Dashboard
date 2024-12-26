@@ -14,9 +14,9 @@
   grid-area: sidebar;
   background-color: hsl(201, 79%, 46%);
   color: hsl(0, 0%, 100%);
-  height: 100vh;
-  width: 64ch;
   padding: 2.4em;
+  width: 64ch;
+  height: 100vh;
   position:fixed;
   overflow: scroll;
 
@@ -101,7 +101,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 6.4em;
+    flex-wrap: wrap;
+
+    gap: 1.6em 6.4em;
 
     .user-info {
       grid-row: 2 / 3;
@@ -141,8 +143,15 @@
   grid-area: main-content;
   display: grid;
   grid-template-columns: 3fr 1fr;
-  gap: 20px;
-  background-color: rgb(210, 218, 224);
+  gap: 2.4em;
+  background-color: hsl(220, 41%, 89%);
+  padding: 1.6em;
+
+  h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding: 0.6em 0;
+  }
 
   #projects {
     grid-column: 1 / 2;
@@ -152,18 +161,50 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-auto-rows: 1fr;
-      gap: 20px;
+      gap: 2.4em;
+
+      .project-card {
+        background-color: white;
+        border-radius: 0.6em;
+        padding: 2.4em 1.6em;
+        font-size: 1.4rem;
+      }
     }
   }
 
   #announcements {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
+    height: 50%;
+
+    .announcements {
+    background-color: white;
+    border-radius: 0.6em;
+    padding: 2.4em 1.6em;
+    display: flex;
+    flex-direction: column;
+    gap: 2.4em;
+    }
+
+    .announcement-item {
+      font-size: 1.2rem;
+    }
   }
 
   #trending {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
+    height: 50%;
+
+    .trending {
+      background-color: white;
+      border-radius: 0.6em;
+      padding: 2.4em 1.6em;
+    }
+
+    .trending-item {
+      font-size: 1.2rem;
+    }
   }
 }
 
