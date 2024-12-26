@@ -45,3 +45,10 @@ h1, h2, h3, h4, h5, h6 {
 #root, #__next {
   isolation: isolate;
 }
+
+/* 11. Set font size to 10px */
+/* Now you can set font size of other elements in rem,
+   for example, 1.5rem = 15px */
+   html {
+    font-size: 62.5%;
+  }
