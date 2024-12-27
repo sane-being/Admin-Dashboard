@@ -157,19 +157,23 @@
 }
 
 .main-content {
+  line-height: 1.3;
   padding: 1.6em;
-  max-width: 248ch;
+  max-width: 128em;
   /* grid item properties */
   grid-area: main-content;
   align-self: start;
   justify-self: center;
   /* grid container properties */
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 2.75fr 1fr;
   gap: 2.4em;
+  grid-template-areas:
+    "projects announcements"
+    "projects trending";
 
   h1 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: bold;
     max-width: fit-content;
     padding: 0.6em 0;
@@ -177,34 +181,39 @@
 
   #projects {
     /* grid item properties */
-    grid-column: 1 / 2;
-    grid-row: 1 / 3;
+    grid-area: projects;
 
     .project-cards {
+      max-width: fit-content;
+      /* grid container properties */
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-auto-rows: 1fr;
       gap: 2.4em;
-      max-width: fit-content;
 
       .project-card {
         background-color: white;
         border-radius: 0.6em;
         padding: 2em 1.6em;
-        font-size: 1.4rem;
-        max-width: 48ch;
+        font-size: 1.6rem;
+        max-width: 24em;
         border-left: 0.6em solid hsl(41, 88%, 52%);
 
+        h3 {
+          text-wrap: nowrap;
+        }
+
         p {
-          max-height: 6em;
+          max-height: 5em;
           overflow: auto;
         }
 
         .action-buttons {
-          display: flex;
-          gap: 1.2em;
           padding: 0.8em;
           padding-bottom: 0.4em;
+          /* flex container properties */
+          display: flex;
+          gap: 1.2em;
           justify-content: flex-end;
           align-items: center;
         }
@@ -213,45 +222,55 @@
   }
 
   #announcements {
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-    max-width: 64ch;
+    max-width: 28em;
+    /* grid item properties */
+    grid-area: announcements;
 
     .announcements {
-    background-color: white;
-    border-radius: 0.6em;
-    padding: 2.4em 1.6em;
-    display: flex;
-    flex-direction: column;
-    max-height: 30em;
-    min-height: 30em;
-    gap: 1.2em;
-    overflow: scroll;
-    }
-
-    .announcement-item {
-      font-size: 1.1rem;
-      max-height: 6em;
-      overflow: hidden;
+      background-color: white;
+      border-radius: 0.6em;
+      padding: 2.4em 1.6em;
+      max-height: 32em;
+      min-height: 32em;
+      overflow: scroll;
+      /* flex container properties */
+      display: flex;
+      flex-direction: column;
+      gap: 1.4em;
+      
+      .announcement-item {
+        font-size: 1.2rem;
+        max-height: 5.6em;
+        overflow: hidden;
+      }
     }
   }
 
   #trending {
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
     height: 50%;
-    max-width: 64ch;
+    max-width: 28em;
+    /* grid item properties */
+    grid-area: trending;
 
     .trending {
       background-color: white;
       border-radius: 0.6em;
-      padding: 2.4em 1.6em;
+      padding: 2.4em;
       max-height: 30em;
       min-height: 30em;
-    }
+      /* flex container properties */
+      display: flex;
+      flex-direction: column;
+      gap: 1.6em;
+      justify-content: center;
 
-    .trending-item {
-      font-size: 1.2rem;
+      .trending-item {
+        font-size: 1.4rem;
+        /* flex container properties */
+        display: flex;
+        gap: 1.6em;
+        align-items: center;
+      }
     }
   }
 }
