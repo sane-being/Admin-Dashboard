@@ -1,13 +1,12 @@
-/* * {
-  border: 1px solid hsl(0, 0%, 0%);
-} */
-
-.container {
+.grid-container {
   background-color: hsl(220, 41%, 89%);
-  height: 100vh;
+  height: 100dvh;
   /* grid container properties */
   display: grid;
-  grid-template-columns: 64ch 1fr;
+  gap: 0;
+  align-items: stretch;
+  grid-template-columns: 32em 1fr;
+  grid-template-rows: 0fr 1fr;
   grid-template-areas:
     "sidebar header"
     "sidebar main-content";
@@ -17,8 +16,8 @@
   background-color: hsl(201, 79%, 46%);
   color: hsl(0, 0%, 100%);
   padding: 2.4em;
-  width: 64ch;
-  height: 100dvh;
+  height: 100%;
+  width: 32em;
   position:fixed;
   overflow: scroll;
   /* grid item properties */
@@ -158,13 +157,16 @@
 }
 
 .main-content {
+  padding: 1.6em;
+  max-width: 248ch;
+  /* grid item properties */
   grid-area: main-content;
+  align-self: start;
+  justify-self: center;
+  /* grid container properties */
   display: grid;
   grid-template-columns: 2fr 1fr;
-  max-width: 248ch;
   gap: 2.4em;
-  padding: 1.6em;
-  margin: 0 auto;
 
   h1 {
     font-size: 1.8rem;
@@ -174,6 +176,7 @@
   }
 
   #projects {
+    /* grid item properties */
     grid-column: 1 / 2;
     grid-row: 1 / 3;
 
