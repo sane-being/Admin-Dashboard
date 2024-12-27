@@ -3,6 +3,9 @@
 } */
 
 .container {
+  background-color: hsl(220, 41%, 89%);
+  height: 100vh;
+  /* grid container properties */
   display: grid;
   grid-template-columns: 64ch 1fr;
   grid-template-areas:
@@ -11,20 +14,22 @@
 }
 
 .sidebar {
-  grid-area: sidebar;
   background-color: hsl(201, 79%, 46%);
   color: hsl(0, 0%, 100%);
   padding: 2.4em;
   width: 64ch;
-  height: 100vh;
+  height: 100dvh;
   position:fixed;
   overflow: scroll;
-
+  /* grid item properties */
+  grid-area: sidebar;
+  /* flex container properties */
   display: flex;
   flex-direction: column;
   gap: 4.8em;
 
   .sidebar-header {
+    /* flex container properties */
     display: flex;
     align-items: center;
     gap: 2.4em;
@@ -39,60 +44,73 @@
     list-style: none; 
     padding: 0;
     margin: 0;
+    font-weight: bold;
+    /* flex container properties */
     display: flex;
     flex-direction: column;
     gap: 1.6em;
-    font-weight: bold;
-
+    
     li {
+      font-size: 2rem;
+      /* flex container properties */
       display: flex;
       align-items: center;
       gap: 1.6em;
-      font-size: 2rem;
     }
   }
 }
 
 .header {
+  background-color: white;
+  height: fit-content;
+  /* grid item properties */
   grid-area: header;
+  /* flex container properties */
   display: flex;
   flex-direction: column;
-
+  
   .header-upper-row {
     padding: 1.2em 4.8em;
+    /* flex container properties */
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 6.4em;
   
     .header-search {
+      /* flex item properties */
       flex-grow: 1;
-      grid-row: 1 / 2;
+      /* flex container properties */
       display: flex;
       align-items: center;
       gap: 2em;
 
+      
       input {
-        flex-grow: 1;
+        background-color: hsl(220, 41%, 89%);
         font-size: 1.4rem;
         border: none;
         border-radius: 1.6em;
-        background-color: hsl(220, 41%, 89%);
         padding: 0.5em 1.2em;
         max-width: 64rem;
+        /* flex item properties */
+        flex-grow: 1;
       }
     }
 
     .header-user {
-      grid-row: 1 / 2;
+      /* flex container properties */
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 3.2em;
+
       h2 {
         font-size: 1.8rem;
       }
     }
+
+
   }
 
   .header-lower-row {    
@@ -142,14 +160,16 @@
 .main-content {
   grid-area: main-content;
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 2fr 1fr;
+  max-width: 248ch;
   gap: 2.4em;
-  background-color: hsl(220, 41%, 89%);
   padding: 1.6em;
+  margin: 0 auto;
 
   h1 {
     font-size: 1.8rem;
     font-weight: bold;
+    max-width: fit-content;
     padding: 0.6em 0;
   }
 
@@ -162,12 +182,29 @@
       grid-template-columns: repeat(2, 1fr);
       grid-auto-rows: 1fr;
       gap: 2.4em;
+      max-width: fit-content;
 
       .project-card {
         background-color: white;
         border-radius: 0.6em;
-        padding: 2.4em 1.6em;
+        padding: 2em 1.6em;
         font-size: 1.4rem;
+        max-width: 48ch;
+        border-left: 0.6em solid hsl(41, 88%, 52%);
+
+        p {
+          max-height: 6em;
+          overflow: auto;
+        }
+
+        .action-buttons {
+          display: flex;
+          gap: 1.2em;
+          padding: 0.8em;
+          padding-bottom: 0.4em;
+          justify-content: flex-end;
+          align-items: center;
+        }
       }
     }
   }
@@ -175,7 +212,7 @@
   #announcements {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
-    height: 50%;
+    max-width: 64ch;
 
     .announcements {
     background-color: white;
@@ -183,11 +220,16 @@
     padding: 2.4em 1.6em;
     display: flex;
     flex-direction: column;
-    gap: 2.4em;
+    max-height: 30em;
+    min-height: 30em;
+    gap: 1.2em;
+    overflow: scroll;
     }
 
     .announcement-item {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
+      max-height: 6em;
+      overflow: hidden;
     }
   }
 
@@ -195,11 +237,14 @@
     grid-column: 2 / 3;
     grid-row: 2 / 3;
     height: 50%;
+    max-width: 64ch;
 
     .trending {
       background-color: white;
       border-radius: 0.6em;
       padding: 2.4em 1.6em;
+      max-height: 30em;
+      min-height: 30em;
     }
 
     .trending-item {
